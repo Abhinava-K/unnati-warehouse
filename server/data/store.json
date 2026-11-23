@@ -37,18 +37,6 @@
       "createdAt": "2026-11-21T17:41:34.582Z"
     },
     {
-      "id": "u_1795437130712",
-      "name": "sanju",
-      "email": "sanju@guddu.com",
-      "passwordHash": "$2b$10$9AkiRQylfy/FR6F/L7Z.TOK21jyUcIzqtu7FghKBOWbfac7CphoQK",
-      "role": "buyer",
-      "companyName": "Guddu industries",
-      "gstNumber": "123456789ABCDEF",
-      "isVerified": true,
-      "city": "Pune",
-      "createdAt": "2026-11-23T12:32:11.015Z"
-    },
-    {
       "id": "u_admin_1",
       "name": "Devendra Verma",
       "email": "admin@unnati.com",
@@ -337,7 +325,7 @@
         "Thickness": "10mm - 60mm",
         "Length": "6000mm - 12000mm",
         "Width": "2000mm - 2500mm",
-        "Impact Tested": "Yes at 0°C"
+        "Impact Tested": "Yes at 0\u00b0C"
       },
       "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
       "createdAt": "2026-11-21T17:41:34.582Z"
@@ -446,7 +434,7 @@
       "stockTons": 150,
       "unit": "Metric Ton",
       "specifications": {
-        "K-Value": "67 ± 1",
+        "K-Value": "67 \u00b1 1",
         "Apparent Density": "0.52 - 0.58 g/cc",
         "Form": "Fine White Powder",
         "Packing": "25 Kg PP Laminated Bags"
@@ -640,7 +628,7 @@
       "interestRatePercentPerMonth": 0.85,
       "riskScore": 775,
       "status": "APPROVED",
-      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "message": "Congratulations! Your Collateral-Free Credit Line of \u20b920,00,000 has been instantly sanctioned for 30 days.",
       "createdAt": "2026-11-23T12:55:35.890Z"
     },
     {
@@ -656,7 +644,7 @@
       "interestRatePercentPerMonth": 0.85,
       "riskScore": 824,
       "status": "APPROVED",
-      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "message": "Congratulations! Your Collateral-Free Credit Line of \u20b920,00,000 has been instantly sanctioned for 30 days.",
       "createdAt": "2026-11-23T12:55:34.006Z"
     },
     {
@@ -672,7 +660,7 @@
       "interestRatePercentPerMonth": 0.85,
       "riskScore": 761,
       "status": "APPROVED",
-      "message": "Congratulations! Your Collateral-Free Credit Line of ₹22,50,000 has been instantly sanctioned for 30 days.",
+      "message": "Congratulations! Your Collateral-Free Credit Line of \u20b922,50,000 has been instantly sanctioned for 30 days.",
       "createdAt": "2026-11-23T12:55:18.482Z"
     },
     {
@@ -688,7 +676,7 @@
       "interestRatePercentPerMonth": 0.85,
       "riskScore": 801,
       "status": "APPROVED",
-      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "message": "Congratulations! Your Collateral-Free Credit Line of \u20b920,00,000 has been instantly sanctioned for 30 days.",
       "createdAt": "2026-11-23T12:55:12.853Z"
     },
     {
@@ -704,7 +692,7 @@
       "interestRatePercentPerMonth": 0.85,
       "riskScore": 769,
       "status": "APPROVED",
-      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "message": "Congratulations! Your Collateral-Free Credit Line of \u20b920,00,000 has been instantly sanctioned for 30 days.",
       "createdAt": "2026-11-23T12:55:07.841Z"
     }
   ],
