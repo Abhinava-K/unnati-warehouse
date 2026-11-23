@@ -595,6 +595,87 @@
       }
     ]
   },
-  "creditApplications": [],
+  "creditApplications": [
+    {
+      "id": "cred_1795438535890",
+      "userId": "u_1795437130712",
+      "applicantName": "sanju",
+      "companyName": "Guddu industries",
+      "gstNumber": "123456789ABCDEF",
+      "requestedAmount": 2000000,
+      "approvedLimit": 2000000,
+      "annualTurnover": 15000000,
+      "tenureDays": 30,
+      "interestRatePercentPerMonth": 0.85,
+      "riskScore": 775,
+      "status": "APPROVED",
+      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "createdAt": "2026-11-23T12:55:35.890Z"
+    },
+    {
+      "id": "cred_1795438534006",
+      "userId": "u_1795437130712",
+      "applicantName": "sanju",
+      "companyName": "Guddu industries",
+      "gstNumber": "123456789ABCDEF",
+      "requestedAmount": 2000000,
+      "approvedLimit": 2000000,
+      "annualTurnover": 15000000,
+      "tenureDays": 30,
+      "interestRatePercentPerMonth": 0.85,
+      "riskScore": 824,
+      "status": "APPROVED",
+      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "createdAt": "2026-11-23T12:55:34.006Z"
+    },
+    {
+      "id": "cred_1795438518481",
+      "userId": "u_1795437130712",
+      "applicantName": "sanju",
+      "companyName": "Guddu industries",
+      "gstNumber": "123456789ABCDEF",
+      "requestedAmount": 20000000,
+      "approvedLimit": 2250000,
+      "annualTurnover": 15000000,
+      "tenureDays": 30,
+      "interestRatePercentPerMonth": 0.85,
+      "riskScore": 761,
+      "status": "APPROVED",
+      "message": "Congratulations! Your Collateral-Free Credit Line of ₹22,50,000 has been instantly sanctioned for 30 days.",
+      "createdAt": "2026-11-23T12:55:18.482Z"
+    },
+    {
+      "id": "cred_1795438512852",
+      "userId": "u_1795437130712",
+      "applicantName": "sanju",
+      "companyName": "Guddu industries",
+      "gstNumber": "123456789ABCDEF",
+      "requestedAmount": 2000000,
+      "approvedLimit": 2000000,
+      "annualTurnover": 15000000,
+      "tenureDays": 30,
+      "interestRatePercentPerMonth": 0.85,
+      "riskScore": 801,
+      "status": "APPROVED",
+      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "createdAt": "2026-11-23T12:55:12.853Z"
+    },
+    {
+      "id": "cred_1795438507654",
+      "userId": "u_1795437130712",
+      "applicantName": "sanju",
+      "companyName": "Guddu industries",
+      "gstNumber": "123456789ABCDEF",
+      "requestedAmount": 2000000,
+      "approvedLimit": 2000000,
+      "annualTurnover": 15000000,
+      "tenureDays": 30,
+      "interestRatePercentPerMonth": 0.85,
+      "riskScore": 769,
+      "status": "APPROVED",
+      "message": "Congratulations! Your Collateral-Free Credit Line of ₹20,00,000 has been instantly sanctioned for 30 days.",
+      "createdAt": "2026-11-23T12:55:07.841Z"
+    }
+  ],
   "orders": []
 }

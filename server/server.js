@@ -26,6 +26,7 @@ const creditRoutes = require('./routes/credit');
 const cartRoutes = require('./routes/cart');
 const metaRoutes = require('./routes/metadata');
 const adminRoutes = require('./routes/admin');
+const newsletterRoutes = require('./routes/newsletter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -54,6 +55,7 @@ app.use('/api/credit', creditRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/metadata', metaRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({
