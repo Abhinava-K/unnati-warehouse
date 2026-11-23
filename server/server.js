@@ -43,8 +43,11 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static asset serving for brain and client assets
-app.use('/api/assets', express.static('C:\\Users\\Abhinava\\.gemini\\antigravity\\brain\\dcd9844c-dc8f-41a9-ad77-64d8f743611a'));
+// Static asset serving for client assets
+const localBrainAssets = 'C:\\Users\\Abhinava\\.gemini\\antigravity\\brain\\dcd9844c-dc8f-41a9-ad77-64d8f743611a';
+if (fs.existsSync(localBrainAssets)) {
+  app.use('/api/assets', express.static(localBrainAssets));
+}
 app.use('/images', express.static(path.join(__dirname, '..', 'client', 'public', 'images')));
 
 // MERN REST API Endpoints

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
 
 // Verified local inventory data with local SVG/image fallbacks
 const SAMPLE_SCRAP_PRODUCTS = [
@@ -828,7 +828,6 @@ export default function App() {
             <div className="hero-overlay-dark">
               <div className="container hero-content-container">
                 <div className="hero-text-block">
-                  <div className="hero-watermark">Raw Materials</div>
                   <h1 className="hero-exact-title">
                     India's Leading B2B Raw<br />
                     Materials<br />

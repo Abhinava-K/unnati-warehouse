@@ -593,6 +593,37 @@
         "bookingDate": "2026-11-25",
         "addedAt": "2026-11-22T15:57:04.176Z"
       }
+    ],
+    "u_1795437130712": [
+      {
+        "id": "cart_prod_1",
+        "productId": "prod_1",
+        "title": "Prime Quality Cold Rolled Coil (CRC) 0.8mm - 2.0mm",
+        "type": "product",
+        "category": "Mild Steel",
+        "sku": "CRC",
+        "city": "Ahmedabad",
+        "manufacturer": "Tata Steel Processing Units Ltd",
+        "price": 58500,
+        "unit": "Metric Ton",
+        "quantity": 15,
+        "specifications": "IS 513:2016 Grade CR1, Width 1250mm",
+        "addedAt": "2026-11-23T10:32:51.726Z"
+      },
+      {
+        "id": "cart_wh_1",
+        "title": "3PL Warehousing: Cold Storage Facility",
+        "type": "warehousing",
+        "facility": "Cold Storage",
+        "city": "Ahmedabad",
+        "pincode": "380001",
+        "provider": "Snowman Logistics Ltd",
+        "price": 28000,
+        "unit": "Month",
+        "quantity": 1,
+        "bookingDate": "2026-11-25",
+        "addedAt": "2026-11-23T10:32:51.727Z"
+      }
     ]
   },
   "creditApplications": [
