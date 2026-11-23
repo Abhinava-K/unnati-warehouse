@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const rawApiBase = import.meta.env.VITE_API_BASE;
-const API_BASE = (rawApiBase && (rawApiBase.startsWith('http') || rawApiBase.startsWith('/')))
-  ? rawApiBase.replace(/\/+$/, '')
+// Robust API base normalization: handles with or without trailing /api cleanly
+const rawApiBase = (import.meta.env.VITE_API_BASE || 'http://localhost:5000/api').trim();
+const cleanBase = (rawApiBase.startsWith('http') || rawApiBase.startsWith('/')) 
+  ? rawApiBase.replace(/\/+$/, '') 
   : 'http://localhost:5000/api';
+const API_BASE = cleanBase.endsWith('/api') ? cleanBase : `${cleanBase}/api`;
 
 // Verified local inventory data with local SVG/image fallbacks
 const SAMPLE_SCRAP_PRODUCTS = [
