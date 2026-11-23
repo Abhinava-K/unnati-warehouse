@@ -493,19 +493,19 @@ body {
   background-image: 
     linear-gradient(90deg, 
       #1E2227 0%, 
-      #1E2227 32%, 
-      rgba(30, 34, 39, 0.90) 42%, 
-      rgba(30, 34, 39, 0.50) 55%, 
-      rgba(30, 34, 39, 0.05) 70%, 
+      #1E2227 36%, 
+      rgba(30, 34, 39, 0.95) 48%, 
+      rgba(30, 34, 39, 0.60) 62%, 
+      rgba(30, 34, 39, 0.08) 78%, 
       transparent 100%
     ),
     url('/images/konecranes-hero.jpg');
-  background-size: cover;
-  background-position: right center;
+  background-size: auto, auto 88%;
+  background-position: left center, right center;
   background-repeat: no-repeat;
   color: var(--white);
-  padding: 75px 0 50px 0;
-  min-height: 490px;
+  padding: 70px 0 50px 0;
+  min-height: 480px;
 }
 
 .hero-overlay-dark {
@@ -1740,4 +1740,86 @@ body {
 .toast-error {
   background-color: #991B1B;
   color: var(--white);
+}
+
+/* Password with Eye Toggle */
+.password-input-row {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-row input {
+  padding-right: 65px;
+}
+
+.btn-eye-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--subtle-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-eye-toggle:hover {
+  color: var(--text-main);
+  border-color: var(--primary-amber);
+}
+
+/* Warehousing Authenticated Buyer Notice */
+.warehousing-buyer-authenticated-box {
+  background: var(--subtle-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 780px;
+  margin: 20px auto 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+.buyer-auth-badge {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+.buyer-auth-badge .badge-pill {
+  background-color: #2563EB;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.buyer-auth-badge h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.buyer-auth-badge p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.buyer-auth-notice p {
+  font-size: 13.5px;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin-bottom: 12px;
 }

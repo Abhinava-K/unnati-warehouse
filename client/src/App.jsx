@@ -19,7 +19,7 @@ const SAMPLE_SCRAP_PRODUCTS = [
     stockTons: 250,
     unit: "Metric Ton",
     specifications: { "Standards": "IS 513:2016 Commercial Grade, Width 1250mm, Mill Test Certified" },
-    image: "/images/konecranes-hero.jpg"
+    image: "/images/cold-rolled-coils.svg"
   },
   {
     id: "prod_hrc_1",
@@ -153,6 +153,8 @@ export default function App() {
   const [authTab, setAuthTab] = useState('login'); // 'login' or 'register'
   const [registerRole, setRegisterRole] = useState('customer'); // 'customer' or 'producer'
   const [authError, setAuthError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRegPassword, setShowRegPassword] = useState(false);
 
   // Modals & Drawers
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -470,29 +472,6 @@ export default function App() {
     showToast('Signed out successfully');
   };
 
-  // Quick Account Login Preset for legitimate verification testing
-  const quickLoginPreset = async (presetEmail, presetPass) => {
-    try {
-      const res = await fetch(`${API_BASE}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: presetEmail, password: presetPass })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setToken(data.token);
-        setUser(data.user);
-        localStorage.setItem('unnati_token', data.token);
-        setAuthModalOpen(false);
-        showToast(`Authenticated as ${data.user.name} (${data.user.role.toUpperCase()})`);
-      } else {
-        setAuthError(data.message || 'Login failed');
-      }
-    } catch (e) {
-      setAuthError('Connection error to auth service');
-    }
-  };
-
   // Categories helper
   const currentCategoryObj = metadata.categories.find(c => c.name === selectedCategory) || metadata.categories[0];
   const subcategories = currentCategoryObj?.subcategories || [];
@@ -539,7 +518,13 @@ export default function App() {
               {user ? (
                 <div className="user-badge">
                   <span className="user-name-text">
-                    <strong>{user.name}</strong> ({user.role === 'producer' ? 'Producer / Mill' : user.role === 'admin' ? 'Admin' : 'Customer'})
+                    <strong>{user.companyName || user.name}</strong> ({
+                      user.role === 'producer' || user.role === 'manufacturer' 
+                        ? 'Mill Producer' 
+                        : user.role === 'admin' 
+                          ? 'Admin' 
+                          : 'MSME Buyer'
+                    })
                   </span>
                   <span className="gst-verified-pill">GST VERIFIED</span>
                   <button className="btn-logout" onClick={handleLogout}>Sign Out</button>
@@ -574,7 +559,7 @@ export default function App() {
                   setMegamenuOpen(false);
                 }}
               >
-                <span>Warehousing</span> <span className="tab-chevron">▾</span>
+                <span>Warehousing</span>
               </button>
 
               <button
@@ -584,7 +569,7 @@ export default function App() {
                   setMegamenuOpen(false);
                 }}
               >
-                <span>Credit</span> <span className="tab-chevron">▾</span>
+                <span>Credit</span>
               </button>
 
               <button
@@ -594,7 +579,7 @@ export default function App() {
                   setMegamenuOpen(false);
                 }}
               >
-                <span>Consultancy</span> <span className="tab-chevron">▾</span>
+                <span>Consultancy</span>
               </button>
 
               <button
@@ -604,7 +589,7 @@ export default function App() {
                   setMegamenuOpen(false);
                 }}
               >
-                <span>Market Research</span> <span className="tab-chevron">▾</span>
+                <span>Market Research</span>
               </button>
 
               {/* Producer Terminal - Strictly visible only when authenticated as Producer */}
@@ -902,8 +887,34 @@ export default function App() {
                   Pan-India Cold Storage, Drop Shipping &amp; Inventory Audit infrastructure for verified primary mill manufacturers and industrial producers.
                 </p>
 
-                {/* If user is not authenticated as producer, display clear professional Producer Sign Up call to action */}
-                {user?.role !== 'producer' && user?.role !== 'manufacturer' && user?.role !== 'admin' ? (
+                {/* Role-Based Warehousing Access: Producer vs MSME Buyer vs Guest */}
+                {user?.role === 'producer' || user?.role === 'manufacturer' || user?.role === 'admin' ? (
+                  <div className="warehousing-authenticated-banner">
+                    <span>Logged in as Verified Producer: <strong>{user.companyName || user.name}</strong> (GSTIN: {user.gstNumber})</span>
+                    <button className="btn-warehousing-producer-cta" onClick={() => setPostModalOpen(true)}>
+                      + Upload Goods to Catalogue
+                    </button>
+                  </div>
+                ) : user ? (
+                  <div className="warehousing-buyer-authenticated-box">
+                    <div className="buyer-auth-badge">
+                      <span className="badge-pill">ACCOUNT ROLE: MSME BUYER</span>
+                      <h4>{user.companyName || user.name}</h4>
+                      <p>GSTIN: {user.gstNumber} &bull; Registered Hub: {user.city}</p>
+                    </div>
+                    <div className="buyer-auth-notice">
+                      <p>
+                        <strong>3PL Warehousing Interface is Reserved for Primary Mill Producers:</strong> Facility reservation, drop-shipping allocations, and bulk inventory audits are strictly available to verified industrial producers.
+                      </p>
+                      <p>
+                        As an <strong>MSME Buyer</strong>, your material purchases automatically include end-to-end warehousing and dispatch logistics directly to your receiving facility.
+                      </p>
+                      <button className="btn-post-product" style={{ marginTop: '10px' }} onClick={() => setActiveTab('procurement')}>
+                        Browse Raw Materials Catalogue
+                      </button>
+                    </div>
+                  </div>
+                ) : (
                   <div className="warehousing-cta-container">
                     <button
                       className="btn-warehousing-producer-cta"
@@ -929,13 +940,6 @@ export default function App() {
                     <div className="warehousing-note-text">
                       Strict Role-Based Access: Warehouse space booking and catalogue listing are reserved for GST-verified primary mill producers. Buyers automatically receive bundled dispatch logistics.
                     </div>
-                  </div>
-                ) : (
-                  <div className="warehousing-authenticated-banner">
-                    <span>Logged in as Verified Producer: <strong>{user.companyName}</strong> (GSTIN: {user.gstNumber})</span>
-                    <button className="btn-warehousing-producer-cta" onClick={() => setPostModalOpen(true)}>
-                      + Upload Goods to Catalogue
-                    </button>
                   </div>
                 )}
               </div>
@@ -1885,27 +1889,25 @@ export default function App() {
               }}>
                 <div className="form-field">
                   <label>Business Email</label>
-                  <input type="email" name="email" required placeholder="name@company.com" defaultValue="buyer@gujaratfab.com" />
+                  <input type="email" name="email" required placeholder="name@company.com" />
                 </div>
                 <div className="form-field">
                   <label>Password</label>
-                  <input type="password" name="password" required defaultValue="buyer123" />
-                </div>
-
-                {/* Legitimate developer/evaluator quick credentials */}
-                <div className="auth-preset-selector">
-                  <div style={{ fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                    QUICK SIGN-IN FOR REGISTERED ACCOUNTS:
-                  </div>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <button type="button" className="btn-preset-pill" onClick={() => quickLoginPreset('buyer@gujaratfab.com', 'buyer123')}>
-                      MSME Buyer Account
-                    </button>
-                    <button type="button" className="btn-preset-pill" onClick={() => quickLoginPreset('producer@tata.com', 'producer123')}>
-                      Mill Producer Account
-                    </button>
-                    <button type="button" className="btn-preset-pill" onClick={() => quickLoginPreset('admin@unnati.com', 'admin123')}>
-                      Admin Console
+                  <div className="password-input-row">
+                    <input 
+                      type={showPassword ? "text" : "password"} 
+                      name="password" 
+                      required 
+                      placeholder="Enter account password" 
+                    />
+                    <button 
+                      type="button" 
+                      className="btn-eye-toggle" 
+                      onClick={() => setShowPassword(!showPassword)}
+                      tabIndex={-1}
+                      title={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? "Hide" : "See"}
                     </button>
                   </div>
                 </div>
@@ -1940,9 +1942,9 @@ export default function App() {
                 <div className="form-field">
                   <label>Enterprise Role</label>
                   <div className="role-select-box">
-                    <label className={`role-label-btn ${registerRole === 'customer' ? 'selected' : ''}`} onClick={() => setRegisterRole('customer')}>
-                      <input type="radio" name="role" value="customer" checked={registerRole === 'customer'} onChange={() => setRegisterRole('customer')} />
-                      <span>MSME Buyer / Customer</span>
+                    <label className={`role-label-btn ${registerRole === 'buyer' || registerRole === 'customer' ? 'selected' : ''}`} onClick={() => setRegisterRole('buyer')}>
+                      <input type="radio" name="role" value="buyer" checked={registerRole === 'buyer' || registerRole === 'customer'} onChange={() => setRegisterRole('buyer')} />
+                      <span>MSME Buyer</span>
                     </label>
                     <label className={`role-label-btn ${registerRole === 'producer' ? 'selected' : ''}`} onClick={() => setRegisterRole('producer')}>
                       <input type="radio" name="role" value="producer" checked={registerRole === 'producer'} onChange={() => setRegisterRole('producer')} />
@@ -1982,7 +1984,23 @@ export default function App() {
                   </div>
                   <div className="form-field">
                     <label>Password</label>
-                    <input type="password" name="password" required placeholder="Min 6 characters" />
+                    <div className="password-input-row">
+                      <input 
+                        type={showRegPassword ? "text" : "password"} 
+                        name="password" 
+                        required 
+                        placeholder="Min 6 characters" 
+                      />
+                      <button 
+                        type="button" 
+                        className="btn-eye-toggle" 
+                        onClick={() => setShowRegPassword(!showRegPassword)}
+                        tabIndex={-1}
+                        title={showRegPassword ? "Hide password" : "Show password"}
+                      >
+                        {showRegPassword ? "Hide" : "See"}
+                      </button>
+                    </div>
                   </div>
                 </div>
 

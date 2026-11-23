@@ -22,12 +22,15 @@ router.post('/register', (req, res) => {
   const gstClean = (gstNumber || '').trim().toUpperCase();
   const isGstValid = gstClean.length >= 15;
 
+  const roleRaw = (role || '').toLowerCase();
+  const normalizedRole = (roleRaw === 'producer' || roleRaw === 'manufacturer') ? 'producer' : 'buyer';
+
   const newUser = {
     id: 'u_' + Date.now(),
     name,
     email: email.toLowerCase().trim(),
     passwordHash: bcrypt.hashSync(password, 10),
-    role: role === 'manufacturer' ? 'manufacturer' : 'buyer',
+    role: normalizedRole,
     companyName: companyName || (name + ' Enterprises'),
     gstNumber: gstClean || '24AAACU' + Math.floor(1000 + Math.random() * 9000) + 'Q1Z5',
     isVerified: true, // verified upon registration in this platform
@@ -68,13 +71,18 @@ router.post('/login', (req, res) => {
     return res.status(401).json({ error: 'INVALID_CREDENTIALS', message: 'Invalid email or password.' });
   }
 
+  const userRole = (user.role === 'producer' || user.role === 'manufacturer') 
+    ? 'producer' 
+    : (user.role === 'admin' ? 'admin' : 'buyer');
+
   const token = jwt.sign(
-    { id: user.id, email: user.email, role: user.role, isVerified: user.isVerified },
+    { id: user.id, email: user.email, role: userRole, isVerified: user.isVerified },
     JWT_SECRET,
     { expiresIn: '7d' }
   );
 
   const { passwordHash, ...userResponse } = user;
+  userResponse.role = userRole;
   res.json({
     message: 'Login successful',
     token,
@@ -85,6 +93,9 @@ router.post('/login', (req, res) => {
 // Current User Profile
 router.get('/me', authenticate, (req, res) => {
   const { passwordHash, ...userResponse } = req.user;
+  userResponse.role = (userResponse.role === 'producer' || userResponse.role === 'manufacturer')
+    ? 'producer'
+    : (userResponse.role === 'admin' ? 'admin' : 'buyer');
   res.json({ user: userResponse });
 });
 
