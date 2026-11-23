@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
+const rawApiBase = import.meta.env.VITE_API_BASE;
+const API_BASE = (rawApiBase && (rawApiBase.startsWith('http') || rawApiBase.startsWith('/')))
+  ? rawApiBase.replace(/\/+$/, '')
+  : 'http://localhost:5000/api';
 
 // Verified local inventory data with local SVG/image fallbacks
 const SAMPLE_SCRAP_PRODUCTS = [
