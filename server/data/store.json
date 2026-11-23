@@ -1,0 +1,564 @@
+{
+  "users": [
+    {
+      "id": "u_mfg_1",
+      "name": "Rajesh Sharma",
+      "email": "manufacturer@tata.com",
+      "passwordHash": "$2b$10$v9HtiL7UTLKzlvNKAgF62uHYQ2T4yTjg.28KZTXZqOtluN/e4EmWS",
+      "role": "manufacturer",
+      "companyName": "Tata Steel Processing Units Ltd",
+      "gstNumber": "24AAACT2727Q1ZW",
+      "isVerified": true,
+      "city": "Ahmedabad",
+      "createdAt": "2026-11-21T17:41:34.451Z"
+    },
+    {
+      "id": "u_mfg_2",
+      "name": "Sunil Agarwal",
+      "email": "jspl@supplier.com",
+      "passwordHash": "$2b$10$SWbp4w6fyD.5EQtZmVstX.ePXEUtLJlaxjJcW8uSF1eWbuKZ2wNwy",
+      "role": "manufacturer",
+      "companyName": "Jindal Steel & Power Ltd",
+      "gstNumber": "27AAACJ2231K1ZZ",
+      "isVerified": true,
+      "city": "Mumbai",
+      "createdAt": "2026-11-21T17:41:34.520Z"
+    },
+    {
+      "id": "u_buyer_1",
+      "name": "Vikram Mehta",
+      "email": "buyer@gujaratfab.com",
+      "passwordHash": "$2b$10$69G3VS.gSb...5ciCpT/weCfwAI8bkGcsFjzq9PylaTlCRm9Jemjy",
+      "role": "buyer",
+      "companyName": "Gujarat Precision Fabricators",
+      "gstNumber": "24AABCG5544P1ZX",
+      "isVerified": true,
+      "city": "Ahmedabad",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "mild-steel",
+      "name": "Mild Steel",
+      "subcategories": [
+        {
+          "id": "flat-products",
+          "name": "Flat Products",
+          "skus": [
+            "CRC",
+            "HR Coil",
+            "HR Plate",
+            "HBC"
+          ]
+        },
+        {
+          "id": "semi-finished",
+          "name": "Semi-Finished",
+          "skus": [
+            "Billets",
+            "Blooms",
+            "Slabs",
+            "Ingots"
+          ]
+        },
+        {
+          "id": "long-products",
+          "name": "Long Products",
+          "skus": [
+            "TMT Rebars (Fe 500D)",
+            "Wire Rods",
+            "Round Bars",
+            "Square Bars"
+          ]
+        },
+        {
+          "id": "structure",
+          "name": "Structure",
+          "skus": [
+            "ISMB Beams",
+            "Channels",
+            "Equal Angles",
+            "Unequal Angles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "non-ferrous",
+      "name": "Non Ferrous",
+      "subcategories": [
+        {
+          "id": "aluminium",
+          "name": "Aluminium Products",
+          "skus": [
+            "Aluminium Ingot",
+            "Aluminium Wire Rod",
+            "Extrusion Billets",
+            "Aluminium Sheets"
+          ]
+        },
+        {
+          "id": "copper",
+          "name": "Copper & Zinc",
+          "skus": [
+            "Copper Cathode",
+            "Zinc Ingot",
+            "Brass Billets",
+            "Lead Ingots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "polymers-packaging",
+      "name": "Polymers & Packaging",
+      "subcategories": [
+        {
+          "id": "polymers",
+          "name": "Polymer Resins",
+          "skus": [
+            "PVC",
+            "HDPE Blow Moulding",
+            "LDPE Film Grade",
+            "PP Raffia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemicals",
+      "name": "Chemicals",
+      "subcategories": [
+        {
+          "id": "industrial-chemicals",
+          "name": "Bulk Industrial",
+          "skus": [
+            "Methanol",
+            "Caustic Soda Lye",
+            "Sulfuric Acid",
+            "Toluene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-petroleum",
+      "name": "Energy & Petroleum",
+      "subcategories": [
+        {
+          "id": "petro-products",
+          "name": "Petroleum Fractions",
+          "skus": [
+            "Bitumen VG 30",
+            "Bitumen VG 40",
+            "Furnace Oil",
+            "Pet Coke"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stainless-steel",
+      "name": "Stainless Steel",
+      "subcategories": [
+        {
+          "id": "ss-flats",
+          "name": "SS Flat & Coils",
+          "skus": [
+            "SS 304 Coil",
+            "SS 316 Plate",
+            "SS 201 Sheet",
+            "SS Bright Bars"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipes",
+      "name": "Pipes",
+      "subcategories": [
+        {
+          "id": "industrial-pipes",
+          "name": "Industrial & Structural",
+          "skus": [
+            "MS ERW Pipes",
+            "Seamless Steel Pipes",
+            "GI Square Hollow Pipes",
+            "Ductile Iron Pipes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infra-construction",
+      "name": "Infrastructure & Construction",
+      "subcategories": [
+        {
+          "id": "construction-bulk",
+          "name": "Bulk Construction",
+          "skus": [
+            "Secondary TMT",
+            "OPC Cement Grade 53",
+            "PPC Cement",
+            "Prestressed Steel Strands"
+          ]
+        }
+      ]
+    }
+  ],
+  "cities": [
+    "Ahmedabad",
+    "Mumbai",
+    "Pune",
+    "Mysore",
+    "Bangalore",
+    "Nashik"
+  ],
+  "products": [
+    {
+      "id": "prod_1795282895761",
+      "title": "Automotive Grade TMT Bar Fe 550D",
+      "category": "Infrastructure & Construction",
+      "subcategory": "Bulk Construction",
+      "sku": "Secondary TMT",
+      "city": "Ahmedabad",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 49200,
+      "moqTons": 20,
+      "stockTons": 180,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Standard": "Industrial Certified IS/ISO"
+      },
+      "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:35.762Z"
+    },
+    {
+      "id": "prod_1",
+      "title": "Prime Quality Cold Rolled Coil (CRC) 0.8mm - 2.0mm",
+      "category": "Mild Steel",
+      "subcategory": "Flat Products",
+      "sku": "CRC",
+      "city": "Ahmedabad",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 58500,
+      "moqTons": 15,
+      "stockTons": 280,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Grade": "CR1 / CR2 Commercial Grade",
+        "Thickness Range": "0.8mm - 2.0mm",
+        "Width": "1250mm",
+        "Standards": "IS 513 (Part 1): 2016",
+        "Packaging": "Eye-to-Sky moisture wrapped coils"
+      },
+      "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_2",
+      "title": "Hot Rolled Coil (HR Coil) Structural Grade",
+      "category": "Mild Steel",
+      "subcategory": "Flat Products",
+      "sku": "HR Coil",
+      "city": "Mumbai",
+      "manufacturerId": "u_mfg_2",
+      "manufacturerName": "Jindal Steel & Power Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 53200,
+      "moqTons": 25,
+      "stockTons": 640,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Grade": "IS 2062 E250 / E350",
+        "Thickness": "2.5mm - 12mm",
+        "Finish": "Pickled & Oiled / Mill Scale",
+        "Yield Strength": "250 - 350 MPa"
+      },
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_3",
+      "title": "Heavy Duty HR Plate IS 2062 Gr.B",
+      "category": "Mild Steel",
+      "subcategory": "Flat Products",
+      "sku": "HR Plate",
+      "city": "Pune",
+      "manufacturerId": "u_mfg_2",
+      "manufacturerName": "Jindal Steel & Power Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 55800,
+      "moqTons": 20,
+      "stockTons": 310,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Thickness": "10mm - 60mm",
+        "Length": "6000mm - 12000mm",
+        "Width": "2000mm - 2500mm",
+        "Impact Tested": "Yes at 0°C"
+      },
+      "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_4",
+      "title": "High Boron Commercial Wire / HBC",
+      "category": "Mild Steel",
+      "subcategory": "Flat Products",
+      "sku": "HBC",
+      "city": "Ahmedabad",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 59800,
+      "moqTons": 10,
+      "stockTons": 120,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Carbon": "0.15% - 0.22%",
+        "Boron Addition": "0.002% - 0.004%",
+        "Surface": "Shot Blasted"
+      },
+      "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_5",
+      "title": "Pure Aluminium Ingot 99.7% Grade (Hindalco Specs)",
+      "category": "Non Ferrous",
+      "subcategory": "Aluminium Products",
+      "sku": "Aluminium Ingot",
+      "city": "Ahmedabad",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 224000,
+      "moqTons": 5,
+      "stockTons": 85,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Purity": "99.7% Min",
+        "Ingot Weight": "20 kg each",
+        "Bundle Weight": "1 Metric Ton strapped"
+      },
+      "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_6",
+      "title": "Paving Grade Bitumen VG-30 Bulk Tankers",
+      "category": "Energy & Petroleum",
+      "subcategory": "Petroleum Fractions",
+      "sku": "Bitumen VG 30",
+      "city": "Mumbai",
+      "manufacturerId": "u_mfg_2",
+      "manufacturerName": "Jindal Steel & Power Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 41200,
+      "moqTons": 20,
+      "stockTons": 400,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Viscosity at 60C": "2400 - 3600 Poises",
+        "Penetration at 25C": "45 - 70",
+        "Flash Point": "220 C Min",
+        "Delivery Mode": "Insulated Road Tankers"
+      },
+      "image": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_7",
+      "title": "High Purity Industrial Methanol 99.85%",
+      "category": "Chemicals",
+      "subcategory": "Bulk Industrial",
+      "sku": "Methanol",
+      "city": "Ahmedabad",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 28400,
+      "moqTons": 16,
+      "stockTons": 240,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Purity": "99.85% wt min",
+        "Water Content": "0.10% wt max",
+        "Density at 20C": "0.791 - 0.793 g/ml"
+      },
+      "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_8",
+      "title": "Suspension Grade PVC Resin K-67 (Pipe & Profile Grade)",
+      "category": "Polymers & Packaging",
+      "subcategory": "Polymer Resins",
+      "sku": "PVC",
+      "city": "Pune",
+      "manufacturerId": "u_mfg_2",
+      "manufacturerName": "Jindal Steel & Power Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 74500,
+      "moqTons": 10,
+      "stockTons": 150,
+      "unit": "Metric Ton",
+      "specifications": {
+        "K-Value": "67 ± 1",
+        "Apparent Density": "0.52 - 0.58 g/cc",
+        "Form": "Fine White Powder",
+        "Packing": "25 Kg PP Laminated Bags"
+      },
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    },
+    {
+      "id": "prod_9",
+      "title": "Secondary Re-rolled TMT Rebars Fe 500D (8mm to 32mm)",
+      "category": "Infrastructure & Construction",
+      "subcategory": "Bulk Construction",
+      "sku": "Secondary TMT",
+      "city": "Bangalore",
+      "manufacturerId": "u_mfg_1",
+      "manufacturerName": "Tata Steel Processing Units Ltd",
+      "isVerifiedSeller": true,
+      "pricePerTon": 47800,
+      "moqTons": 12,
+      "stockTons": 500,
+      "unit": "Metric Ton",
+      "specifications": {
+        "Standard": "IS 1786:2008 Grade Fe 500D",
+        "Lengths": "12 Meters standard bundles",
+        "Bendability": "Excellent seismic resistance"
+      },
+      "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2026-11-21T17:41:34.582Z"
+    }
+  ],
+  "warehousingProviders": [
+    {
+      "facility": "Cold Storage",
+      "provider": "Snowman Logistics Ltd",
+      "baseFeePerMonth": 28000,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Bangalore"
+      ]
+    },
+    {
+      "facility": "Cold Storage",
+      "provider": "TVS ColdChain Solutions",
+      "baseFeePerMonth": 29500,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Mysore",
+        "Nashik"
+      ]
+    },
+    {
+      "facility": "Drop Shipping",
+      "provider": "Adani Logistics 3PL",
+      "baseFeePerMonth": 18500,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Bangalore",
+        "Nashik",
+        "Mysore"
+      ]
+    },
+    {
+      "facility": "Drop Shipping",
+      "provider": "Concor Multi-Modal Hub",
+      "baseFeePerMonth": 16800,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Bangalore"
+      ]
+    },
+    {
+      "facility": "Inventory Check",
+      "provider": "SGS India Industrial Inspection",
+      "baseFeePerMonth": 12000,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Mysore",
+        "Bangalore",
+        "Nashik"
+      ]
+    },
+    {
+      "facility": "Customize Facilities",
+      "provider": "UNNATI Enterprise Solutions",
+      "baseFeePerMonth": 35000,
+      "cities": [
+        "Ahmedabad",
+        "Mumbai",
+        "Pune",
+        "Mysore",
+        "Bangalore",
+        "Nashik"
+      ]
+    }
+  ],
+  "cart": {
+    "u_mfg_1": [
+      {
+        "id": "prod_1",
+        "title": "CRC Mild Steel",
+        "price": 58500,
+        "quantity": 15,
+        "type": "product",
+        "addedAt": "2026-11-21T17:41:35.755Z"
+      }
+    ],
+    "prototype_default": [
+      {
+        "id": "cart_prod_1",
+        "productId": "prod_1",
+        "title": "Prime Quality Cold Rolled Coil (CRC) 0.8mm - 2.0mm",
+        "type": "product",
+        "category": "Mild Steel",
+        "sku": "CRC",
+        "city": "Ahmedabad",
+        "manufacturer": "Tata Steel Processing Units Ltd",
+        "price": 58500,
+        "unit": "Metric Ton",
+        "quantity": 15,
+        "specifications": "IS 513:2016 Grade CR1, Width 1250mm",
+        "addedAt": "2026-11-22T15:57:04.170Z"
+      },
+      {
+        "id": "cart_wh_1",
+        "title": "3PL Warehousing: Cold Storage Facility",
+        "type": "warehousing",
+        "facility": "Cold Storage",
+        "city": "Ahmedabad",
+        "pincode": "380001",
+        "provider": "Snowman Logistics Ltd",
+        "price": 28000,
+        "unit": "Month",
+        "quantity": 1,
+        "bookingDate": "2026-11-25",
+        "addedAt": "2026-11-22T15:57:04.176Z"
+      }
+    ]
+  },
+  "creditApplications": [],
+  "orders": []
+}

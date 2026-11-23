@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#181D24"/>
+  <rect x="0" y="380" width="800" height="120" fill="#12161A"/>
+  <!-- Stacked Heavy Hot Rolled Plates -->
+  <g transform="translate(150, 160)">
+    <polygon points="0,180 320,180 500,60 180,60" fill="#4B5563" stroke="#374151" stroke-width="2"/>
+    <polygon points="0,180 320,180 320,200 0,200" fill="#1F2937"/>
+    <polygon points="320,180 500,60 500,80 320,200" fill="#374151"/>
+
+    <polygon points="20,150 340,150 520,30 200,30" fill="#6B7280" stroke="#4B5563" stroke-width="2"/>
+    <polygon points="20,150 340,150 340,170 20,170" fill="#374151"/>
+    <polygon points="340,150 520,30 520,50 340,170" fill="#4B5563"/>
+
+    <polygon points="40,120 360,120 540,0 220,0" fill="#9CA3AF" stroke="#6B7280" stroke-width="2"/>
+    <polygon points="40,120 360,120 360,140 40,140" fill="#4B5563"/>
+    <polygon points="360,120 540,0 540,20 360,140" fill="#6B7280"/>
+  </g>
+  <rect x="20" y="20" width="180" height="32" rx="4" fill="#0F172A" opacity="0.8"/>
+  <text x="32" y="41" fill="#FFAA00" font-family="'Inter', sans-serif" font-size="12" font-weight="800">IS 2062:2011 E250</text>
+</svg>

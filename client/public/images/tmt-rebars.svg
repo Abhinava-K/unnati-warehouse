@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#181D24"/>
+  <rect x="0" y="380" width="800" height="120" fill="#12161A"/>
+  <!-- Rebars Bundles -->
+  <g transform="translate(100, 150)">
+    <!-- Ribbed steel bars -->
+    <rect x="50" y="80" width="600" height="24" rx="12" fill="#64748B" stroke="#334155" stroke-width="2"/>
+    <rect x="40" y="120" width="620" height="24" rx="12" fill="#475569" stroke="#1E293B" stroke-width="2"/>
+    <rect x="60" y="160" width="580" height="24" rx="12" fill="#94A3B8" stroke="#475569" stroke-width="2"/>
+    <!-- Wire tags -->
+    <rect x="180" y="60" width="12" height="150" fill="#D97706"/>
+    <rect x="520" y="60" width="12" height="150" fill="#D97706"/>
+  </g>
+  <rect x="20" y="20" width="170" height="32" rx="4" fill="#0F172A" opacity="0.8"/>
+  <text x="32" y="41" fill="#FFAA00" font-family="'Inter', sans-serif" font-size="12" font-weight="800">IS 1786 Fe 500D</text>
+</svg>

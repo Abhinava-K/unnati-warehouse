@@ -1,0 +1,20 @@
+# User-specified ignore rules
+*.md
+*.bat
+.agents/
+snapshots/
+
+# Dependencies & Build Artefacts
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+.system_generated/
+*.log
+
+# Environment & OS files
+.env
+.env.local
+.DS_Store
+Thumbs.db
