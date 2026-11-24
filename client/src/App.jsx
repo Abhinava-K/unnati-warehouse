@@ -113,35 +113,8 @@ const SAMPLE_SCRAP_PRODUCTS = [
   }
 ];
 
-// Default sample cart items
-const DEFAULT_SAMPLE_CART = [
-  {
-    id: "cart_prod_1",
-    title: "Prime Quality Cold Rolled Coil (CRC) 0.8mm - 2.0mm",
-    type: "product",
-    category: "Mild Steel",
-    sku: "CRC",
-    city: "Ahmedabad",
-    manufacturer: "Tata Steel Processing Units Ltd",
-    price: 58500,
-    unit: "Metric Ton",
-    quantity: 15,
-    specifications: "IS 513:2016 Grade CR1, Width 1250mm"
-  },
-  {
-    id: "cart_wh_1",
-    title: "3PL Warehousing: Cold Storage Facility",
-    type: "warehousing",
-    facility: "Cold Storage",
-    city: "Ahmedabad",
-    pincode: "380001",
-    provider: "Snowman Logistics Ltd",
-    price: 28000,
-    unit: "Month",
-    quantity: 1,
-    bookingDate: "2026-11-25"
-  }
-];
+// Default sample cart items (initialized empty)
+const DEFAULT_SAMPLE_CART = [];
 
 export default function App() {
   // Theme Mode: 'dark' (default enterprise style) or 'light'
@@ -319,7 +292,7 @@ export default function App() {
   });
 
   const [products, setProducts] = useState(SAMPLE_SCRAP_PRODUCTS);
-  const [cart, setCart] = useState(DEFAULT_SAMPLE_CART);
+  const [cart, setCart] = useState([]);
   const [sanctionedCredit, setSanctionedCredit] = useState(2500000);
 
   // Toggle Theme
@@ -399,41 +372,51 @@ export default function App() {
     }
   };
 
-  const fetchProducts = async (cat = selectedCategory, sub = selectedSubcategory, sku = selectedSku, city = selectedCity, query = searchQuery) => {
+  const fetchProducts = async (cat, sub, sku, city, query) => {
     try {
+      const category = typeof cat === 'string' ? cat : selectedCategory;
+      const subcategory = typeof sub === 'string' ? sub : selectedSubcategory;
+      const skuVal = typeof sku === 'string' ? sku : selectedSku;
+      const cityVal = typeof city === 'string' ? city : selectedCity;
+      const searchVal = typeof query === 'string' ? query : searchQuery;
+
       const params = new URLSearchParams();
-      if (cat) params.append('category', cat);
-      if (sub) params.append('subcategory', sub);
-      if (sku) params.append('sku', sku);
-      if (city) params.append('city', city);
-      if (query) params.append('search', query);
+      if (category) params.append('category', category);
+      if (subcategory) params.append('subcategory', subcategory);
+      if (skuVal) params.append('sku', skuVal);
+      if (cityVal) params.append('city', cityVal);
+      if (searchVal) params.append('search', searchVal);
 
       const qs = params.toString();
       const res = await fetch(`${API_BASE}/products${qs ? '?' + qs : ''}`);
       if (res.ok) {
         const data = await res.json();
-        if (data.products && data.products.length > 0) {
+        if (data.products) {
           setProducts(data.products);
           return;
         }
       }
       let filtered = [...SAMPLE_SCRAP_PRODUCTS];
-      if (cat) filtered = filtered.filter(p => p.category === cat);
-      if (city) filtered = filtered.filter(p => p.city === city);
-      if (sku) filtered = filtered.filter(p => p.sku === sku);
-      if (query) {
-        const q = query.toLowerCase();
-        filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      if (category) filtered = filtered.filter(p => p.category === category);
+      if (cityVal) filtered = filtered.filter(p => p.city === cityVal);
+      if (skuVal) filtered = filtered.filter(p => p.sku === skuVal);
+      if (searchVal) {
+        const q = searchVal.toLowerCase();
+        filtered = filtered.filter(p => (p.title && p.title.toLowerCase().includes(q)) || (p.sku && p.sku.toLowerCase().includes(q)) || (p.category && p.category.toLowerCase().includes(q)));
       }
       setProducts(filtered);
     } catch (err) {
       let filtered = [...SAMPLE_SCRAP_PRODUCTS];
-      if (cat) filtered = filtered.filter(p => p.category === cat);
-      if (city) filtered = filtered.filter(p => p.city === city);
-      if (sku) filtered = filtered.filter(p => p.sku === sku);
-      if (query) {
-        const q = query.toLowerCase();
-        filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      const category = typeof cat === 'string' ? cat : selectedCategory;
+      const skuVal = typeof sku === 'string' ? sku : selectedSku;
+      const cityVal = typeof city === 'string' ? city : selectedCity;
+      const searchVal = typeof query === 'string' ? query : searchQuery;
+      if (category) filtered = filtered.filter(p => p.category === category);
+      if (cityVal) filtered = filtered.filter(p => p.city === cityVal);
+      if (skuVal) filtered = filtered.filter(p => p.sku === skuVal);
+      if (searchVal) {
+        const q = searchVal.toLowerCase();
+        filtered = filtered.filter(p => (p.title && p.title.toLowerCase().includes(q)) || (p.sku && p.sku.toLowerCase().includes(q)) || (p.category && p.category.toLowerCase().includes(q)));
       }
       setProducts(filtered);
     }
@@ -467,14 +450,12 @@ export default function App() {
       const res = await fetch(`${API_BASE}/cart`, { headers });
       if (res.ok) {
         const data = await res.json();
-        if (data.items && data.items.length > 0) {
-          setCart(data.items);
-          return;
-        }
+        setCart(data.items || []);
+        return;
       }
-      setCart(DEFAULT_SAMPLE_CART);
+      setCart([]);
     } catch (err) {
-      setCart(DEFAULT_SAMPLE_CART);
+      setCart([]);
     }
   };
 
@@ -587,12 +568,7 @@ export default function App() {
           <div className="container utility-inner">
             <div className="brand-wrapper">
               <div className="brand-logo" onClick={() => { setActiveTab('procurement'); setMegamenuOpen(false); }}>
-                <div className="logo-graphic">
-                  <span className="chart-bar b1"></span>
-                  <span className="chart-bar b2"></span>
-                  <span className="chart-bar b3"></span>
-                  <svg className="arrow-icon" viewBox="0 0 24 24"><path fill="#2E7D32" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
-                </div>
+                <img src="/logo-mark.svg" alt="UNNATI Emblem" className="brand-logo-mark" />
                 <span className="brand-name">UNNATI</span>
               </div>
               <div className="utility-nav-links">
@@ -686,25 +662,6 @@ export default function App() {
                 <span>Market Research</span>
               </button>
 
-              {/* Producer Terminal - Strictly visible only when authenticated as Producer */}
-              {(user?.role === 'producer' || user?.role === 'manufacturer') && (
-                <button
-                  className={`service-tab-btn role-special-btn ${activeTab === 'producer-portal' ? 'active' : ''}`}
-                  onClick={() => { setActiveTab('producer-portal'); setMegamenuOpen(false); }}
-                >
-                  <span>Producer Terminal</span>
-                </button>
-              )}
-
-              {/* Admin Console - Strictly visible only when authenticated as Admin */}
-              {user?.role === 'admin' && (
-                <button
-                  className={`service-tab-btn role-special-btn ${activeTab === 'admin' ? 'active' : ''}`}
-                  onClick={() => { setActiveTab('admin'); setMegamenuOpen(false); }}
-                >
-                  <span>Admin Console</span>
-                </button>
-              )}
             </div>
 
             {/* Cart Trigger with live count */}
@@ -854,7 +811,7 @@ export default function App() {
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && fetchProducts()}
                     />
-                    <button className="btn-search-amber" onClick={fetchProducts}>Search</button>
+                    <button className="btn-search-amber" onClick={() => fetchProducts()}>Search</button>
                   </div>
 
                   {/* Colored Tag Chips */}
@@ -1066,10 +1023,14 @@ export default function App() {
                   <form onSubmit={async (e) => {
                     e.preventDefault();
                     const fd = new FormData(e.target);
+                    const catName = fd.get('category') || 'Mild Steel';
+                    const matchedCat = metadata.categories.find(c => c.name.toLowerCase() === catName.toLowerCase());
+                    const defaultSub = matchedCat?.subcategories?.[0]?.name || 'Flat Products';
+
                     const payload = {
                       title: fd.get('title'),
-                      category: fd.get('category'),
-                      subcategory: fd.get('subcategory') || 'Flat Products',
+                      category: catName,
+                      subcategory: fd.get('subcategory') || defaultSub,
                       sku: fd.get('sku') || 'Standard Grade',
                       city: fd.get('city') || 'Ahmedabad',
                       stockTons: Number(fd.get('stockTons')),
@@ -1204,7 +1165,7 @@ export default function App() {
                 {/* 2. WAREHOUSING INTERFACE 3PL TABLE (REPLICATED FROM IMAGE 1) */}
                 <div className="table-card">
                   <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h3 style={{ fontSize: '18px', fontWeight: '800' }}>Warehousing Interface (Image 1 Replicated)</h3>
+                    <h3 style={{ fontSize: '18px', fontWeight: '800' }}>3PL Fulfillment &amp; Facility Allocation</h3>
                     <span className="gst-verified-pill">PRODUCER ALLOCATION ACTIVE</span>
                   </div>
 
@@ -2530,10 +2491,8 @@ export default function App() {
             <div className="cart-body-items">
               {cart.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '50px 10px', color: 'var(--text-muted)' }}>
-                  <p>Your cart is empty.</p>
-                  <button className="btn-post-product" style={{ marginTop: '14px' }} onClick={() => { setCart(DEFAULT_SAMPLE_CART); showToast('Sample cart items loaded'); }}>
-                    Load Sample Cart Items
-                  </button>
+                  <p style={{ fontSize: '15px', fontWeight: '700' }}>Your cart is empty.</p>
+                  <p style={{ fontSize: '12.5px', marginTop: '6px' }}>Add bulk raw materials or warehousing services to begin order placement.</p>
                 </div>
               ) : (
                 cart.map(item => (

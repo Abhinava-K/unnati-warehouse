@@ -4,37 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const DB_FILE = path.join(__dirname, 'store.json');
 
-const sampleCartItems = [
-  {
-    id: "cart_prod_1",
-    productId: "prod_1",
-    title: "Prime Quality Cold Rolled Coil (CRC) 0.8mm - 2.0mm",
-    type: "product",
-    category: "Mild Steel",
-    sku: "CRC",
-    city: "Ahmedabad",
-    manufacturer: "Tata Steel Processing Units Ltd",
-    price: 58500,
-    unit: "Metric Ton",
-    quantity: 15,
-    specifications: "IS 513:2016 Grade CR1, Width 1250mm",
-    addedAt: new Date().toISOString()
-  },
-  {
-    id: "cart_wh_1",
-    title: "3PL Warehousing: Cold Storage Facility",
-    type: "warehousing",
-    facility: "Cold Storage",
-    city: "Ahmedabad",
-    pincode: "380001",
-    provider: "Snowman Logistics Ltd",
-    price: 28000,
-    unit: "Month",
-    quantity: 1,
-    bookingDate: "2026-11-25",
-    addedAt: new Date().toISOString()
-  }
-];
+const sampleCartItems = [];
 
 const defaultData = {
   users: [
@@ -432,10 +402,7 @@ const defaultData = {
       cities: ["Ahmedabad", "Mumbai", "Pune", "Mysore", "Bangalore", "Nashik", "Surat"]
     }
   ],
-  cart: {
-    "u_buyer_1": JSON.parse(JSON.stringify(sampleCartItems)),
-    "prototype_default": JSON.parse(JSON.stringify(sampleCartItems))
-  },
+  cart: {},
   creditApplications: [
     {
       id: "cred_sample_1",
@@ -515,19 +482,20 @@ class DB {
   getProducts(filters = {}) {
     const data = this.read();
     return data.products.filter(p => {
-      if (filters.category && p.category.toLowerCase() !== filters.category.toLowerCase()) return false;
-      if (filters.subcategory && p.subcategory.toLowerCase() !== filters.subcategory.toLowerCase()) return false;
-      if (filters.sku && p.sku.toLowerCase() !== filters.sku.toLowerCase()) return false;
-      if (filters.city && p.city.toLowerCase() !== filters.city.toLowerCase()) return false;
-      if (filters.manufacturerId && p.manufacturerId !== filters.manufacturerId) return false;
       if (filters.search) {
-        const q = filters.search.toLowerCase();
-        const matches = p.title.toLowerCase().includes(q) ||
-                        p.category.toLowerCase().includes(q) ||
-                        p.sku.toLowerCase().includes(q) ||
-                        p.manufacturerName.toLowerCase().includes(q);
+        const q = filters.search.toLowerCase().trim();
+        const matches = (p.title && p.title.toLowerCase().includes(q)) ||
+                        (p.category && p.category.toLowerCase().includes(q)) ||
+                        (p.sku && p.sku.toLowerCase().includes(q)) ||
+                        (p.city && p.city.toLowerCase().includes(q)) ||
+                        (p.subcategory && p.subcategory.toLowerCase().includes(q)) ||
+                        (p.manufacturerName && p.manufacturerName.toLowerCase().includes(q));
         if (!matches) return false;
       }
+      if (filters.category && p.category && p.category.toLowerCase() !== filters.category.toLowerCase()) return false;
+      if (filters.sku && p.sku && p.sku.toLowerCase() !== filters.sku.toLowerCase()) return false;
+      if (filters.city && p.city && p.city.toLowerCase() !== filters.city.toLowerCase()) return false;
+      if (filters.manufacturerId && p.manufacturerId !== filters.manufacturerId) return false;
       return true;
     });
   }
@@ -546,11 +514,12 @@ class DB {
     return true;
   }
 
-  // Cart (with rich default prototype sample items)
+  // Cart (empty initially by default)
   getCart(userId) {
     const data = this.read();
-    if (!data.cart[userId] || data.cart[userId].length === 0) {
-      data.cart[userId] = JSON.parse(JSON.stringify(sampleCartItems));
+    if (!data.cart) data.cart = {};
+    if (!data.cart[userId]) {
+      data.cart[userId] = [];
       this.write(data);
     }
     return data.cart[userId];
@@ -558,8 +527,9 @@ class DB {
 
   addToCart(userId, item) {
     const data = this.read();
+    if (!data.cart) data.cart = {};
     if (!data.cart[userId]) {
-      data.cart[userId] = JSON.parse(JSON.stringify(sampleCartItems));
+      data.cart[userId] = [];
     }
     const existingIndex = data.cart[userId].findIndex(i => i.id === item.id);
     if (existingIndex > -1) {

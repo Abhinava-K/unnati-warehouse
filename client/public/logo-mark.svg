@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="100%" height="100%">
+  <defs>
+    <!-- Background / Glow / Gradients -->
+    <linearGradient id="markBar1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#FF4D00" />
+    </linearGradient>
+
+    <linearGradient id="markBar2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA800" />
+      <stop offset="100%" stop-color="#FF6A00" />
+    </linearGradient>
+
+    <linearGradient id="markBar3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC400" />
+      <stop offset="100%" stop-color="#FF9500" />
+    </linearGradient>
+
+    <linearGradient id="markBarDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <!-- Top Arch Gradient (Blue to Lime Green) -->
+    <linearGradient id="markTopArch" x1="0%" y1="80%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="45%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#84CC16" />
+    </linearGradient>
+
+    <!-- Bottom Arc Gradient (Deep Blue to Cyan) -->
+    <linearGradient id="markBottomArc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F4C9C" />
+      <stop offset="40%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#00357A" />
+    </linearGradient>
+
+    <!-- Green Rising Arrow Gradient -->
+    <linearGradient id="markRisingArrow" x1="0%" y1="70%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="25%" stop-color="#0D9488" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#84CC16" />
+    </linearGradient>
+
+    <!-- Chain Link Gradients -->
+    <linearGradient id="markChain1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E4894" />
+      <stop offset="100%" stop-color="#062F69" />
+    </linearGradient>
+    
+    <linearGradient id="markChain2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0E4894" />
+    </linearGradient>
+
+    <linearGradient id="markChain3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <linearGradient id="markChain4" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#84CC16" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <!-- 1. CHART BARS -->
+    <!-- Bar 1 (Left, Orange) -->
+    <rect x="122" y="145" width="22" height="42" rx="3" fill="url(#markBar1)" />
+    <rect x="122" y="193" width="22" height="24" rx="2" fill="url(#markBarDark)" />
+
+    <!-- Bar 2 (Middle, Amber) -->
+    <rect x="154" y="118" width="25" height="60" rx="3" fill="url(#markBar2)" />
+    <rect x="154" y="184" width="25" height="33" rx="2" fill="url(#markBarDark)" />
+
+    <!-- Bar 3 (Right, Golden Yellow) -->
+    <rect x="189" y="88" width="26" height="78" rx="3" fill="url(#markBar3)" />
+    <rect x="189" y="172" width="26" height="45" rx="2" fill="url(#markBarDark)" />
+
+    <!-- 2. TOP BLUE-TO-GREEN ARCH -->
+    <path d="M 120,105 C 138,78 178,65 218,74 C 235,78 252,86 266,98 C 248,90 226,84 205,83 C 168,81 138,92 120,105 Z" 
+          fill="url(#markTopArch)" />
+
+    <!-- 3. BOTTOM-LEFT SWOOPING BLUE ARC -->
+    <path d="M 85,152 C 78,175 79,202 92,224 C 104,244 125,257 150,262 C 140,256 128,248 120,237 C 105,217 103,190 109,166 C 112,154 116,142 122,132 C 108,136 94,142 85,152 Z" 
+          fill="url(#markBottomArc)" />
+
+    <path d="M 76,165 C 70,188 74,212 88,230 C 100,246 118,258 138,263 C 122,256 108,243 98,226 C 88,208 86,186 92,166 C 94,160 97,155 101,150 C 91,154 82,159 76,165 Z" 
+          fill="#0A3272" opacity="0.6" />
+
+    <!-- 4. RISING GREEN ARROW RIBBON -->
+    <path d="M 78,168 C 82,185 102,189 122,185 C 152,179 188,162 222,138 C 248,120 272,98 290,75 L 292,94 L 324,54 L 268,64 L 285,77 C 265,98 238,122 210,140 C 175,164 142,177 114,178 C 96,179 82,176 78,168 Z" 
+          fill="url(#markRisingArrow)" />
+
+    <!-- 5. INDUSTRIAL CHAIN LINKS (BOTTOM TO TOP RIGHT) -->
+    <!-- Link 1: Bottom Horizontal Deep Blue -->
+    <g transform="translate(156, 248) rotate(14)">
+      <rect x="-20" y="-8" width="40" height="17" rx="8.5" fill="url(#markChain1)" stroke="#06224D" stroke-width="1.5" />
+      <rect x="-10" y="-3.5" width="20" height="7" rx="3.5" fill="#FFFFFF" opacity="0.9" />
+    </g>
+
+    <!-- Link 2: Angled Cobalt Blue -->
+    <g transform="translate(196, 240) rotate(-22)">
+      <rect x="-18" y="-8" width="36" height="16" rx="8" fill="url(#markChain2)" stroke="#083777" stroke-width="1.5" />
+      <rect x="-9" y="-3.5" width="18" height="7" rx="3.5" fill="#FFFFFF" opacity="0.9" />
+    </g>
+
+    <!-- Link 3: Transitioning Teal-Green -->
+    <g transform="translate(230, 220) rotate(-48)">
+      <rect x="-18" y="-7.5" width="36" height="15" rx="7.5" fill="url(#markChain3)" stroke="#04685E" stroke-width="1.5" />
+      <rect x="-9" y="-3" width="18" height="6" rx="3" fill="#FFFFFF" opacity="0.9" />
+    </g>
+
+    <!-- Link 4: Upper Lime Green (leading to arrow) -->
+    <g transform="translate(254, 188) rotate(-66)">
+      <rect x="-17" y="-7.5" width="34" height="15" rx="7.5" fill="url(#markChain4)" stroke="#057A44" stroke-width="1.5" />
+      <rect x="-8.5" y="-3" width="17" height="6" rx="3" fill="#FFFFFF" opacity="0.9" />
+    </g>
+
+    <!-- Accent highlight link connecting to arrow -->
+    <path d="M 252,168 C 255,160 258,152 261,142 C 263,143 266,145 268,148 C 265,157 261,166 257,174 Z" 
+          fill="#84CC16" opacity="0.8" />
+  </g>
+</svg>

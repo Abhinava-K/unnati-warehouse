@@ -108,11 +108,11 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
-/* Top Utility Bar (44px Height) */
+/* Top Utility Bar */
 .top-utility-bar {
   background-color: var(--header-bg);
-  padding: 8px 0;
-  height: 46px;
+  padding: 6px 0;
+  height: 52px;
   display: flex;
   align-items: center;
 }
@@ -132,52 +132,29 @@ body {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
   text-decoration: none;
 }
 
-.logo-graphic {
-  display: flex;
-  align-items: flex-end;
-  gap: 2.5px;
-  height: 22px;
-  position: relative;
-}
-
-.chart-bar {
-  width: 5px;
-  border-radius: 1px;
-}
-
-.chart-bar.b1 {
-  height: 10px;
-  background-color: #F59E0B;
-}
-
-.chart-bar.b2 {
-  height: 16px;
-  background-color: #3B82F6;
-}
-
-.chart-bar.b3 {
-  height: 22px;
-  background-color: #10B981;
-}
-
-.arrow-icon {
-  position: absolute;
-  top: -4px;
-  right: -7px;
-  width: 14px;
-  height: 14px;
+.brand-logo-mark {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 .brand-name {
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: 0.5px;
-  color: #2563EB;
+  letter-spacing: 1px;
+  color: var(--text-main);
+  transition: color 0.15s;
+}
+
+.brand-logo:hover .brand-name {
+  color: var(--primary-amber);
 }
 
 .utility-nav-links {
